@@ -1,5 +1,7 @@
 # Twilio Mock API Server
 
+[![Node.js CI](https://github.com/kpavlov/twilio-mock/actions/workflows/node.js.yml/badge.svg)](https://github.com/kpavlov/twilio-mock/actions/workflows/node.js.yml)
+
 Twilio API Simulator
 
 ## Setup
