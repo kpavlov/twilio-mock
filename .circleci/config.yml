@@ -17,9 +17,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     machine: true
     steps:
-      - setup_remote_docker:
-          version: 19.03.13
-          docker_layer_caching: true
       - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -40,7 +37,6 @@ jobs:
           name: Build
           command: |
             docker build nginx -t twilio-proxy:latest
-            docker rm --force twilio-proxy
             docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
       - run:
           name: Start Proxy
