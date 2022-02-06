@@ -31,7 +31,8 @@ jobs:
     - run: yarn
       run: yarn proxy
     - run: yarn build
-    - run: nohup yarn start:prod &
+    - run: |
+        nohup yarn start:prod &
     - name: Add hosts to /etc/hosts
       run: |
         sudo echo "127.0.0.1 api.local.twilio.com" | sudo tee -a /etc/hosts
