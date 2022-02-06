@@ -18,20 +18,10 @@ jobs:
     machine: true
     steps:
       - checkout
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          # See the configuration reference documentation for more details on using restore_cache and save_cache steps
-          # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Yarn 
-          command: |
-            curl -o- -L https://yarnpkg.com/install.sh | bash
-            echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
-      - run:
-          name: Install Dependencies
-          command: yarn install --immutable
+      - node/install-yarn
+      - node/install-packages:
+          pkg-manager: yarn
+          include-branch-in-cache-key: false
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
