@@ -27,10 +27,14 @@ jobs:
             - .yarn/cache
             - .yarn/unplugged
       - docker/install-docker-tools
+      - setup_remote_docker
       - node/install:
           install-yarn: true 
           node-version: 17.4.0
-      - setup_remote_docker
+      - node/install-packages:
+          pkg-manager: yarn 
+          check-cache: detect 
+
       # - run:
       #     name: Start Proxy
       #     command: |
@@ -43,13 +47,13 @@ jobs:
       - run:
           name: Start Server
           command: yarn start:prod
-      - run:
-          name: Run Tests
-          command: yarn tests
-      - run:
-          name: Stop Proxy
-          command: |
-            docker rm --force twilio-proxy
+      # - run:
+      #     name: Run Tests
+      #     command: yarn tests
+      # - run:
+      #     name: Stop Proxy
+      #     command: |
+      #       docker rm --force twilio-proxy
 
 
 # Invoke jobs via workflows
