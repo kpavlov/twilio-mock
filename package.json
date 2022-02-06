@@ -44,6 +44,9 @@
         "useESM": true
       }
     },
+    "roots": [
+      "<rootDir>/src/"
+    ],
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
