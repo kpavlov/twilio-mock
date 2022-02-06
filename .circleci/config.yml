@@ -13,8 +13,8 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - setup_remote_docker:
-        version: 19.03.13
+#       - setup_remote_docker:
+#         version: 20.10.11
       - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -33,7 +33,10 @@ jobs:
             - .yarn/unplugged
       - run:
           name: Build
-          command: yarn build
+          command: |
+            docker build nginx -t twilio-proxy:latest
+            docker rm --force twilio-proxy
+            docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
       - run:
           name: Start Proxy
           command: yarn proxy
@@ -45,7 +48,8 @@ jobs:
           command: yarn tests
       - run:
           name: Stop Proxy
-          command: yarn proxy:stop
+          command: |
+            docker rm --force twilio-proxy
 
 
 # Invoke jobs via workflows
