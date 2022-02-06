@@ -1,0 +1,16 @@
+@startuml
+
+rectangle app {
+  component Application
+  component TwilioClient  #palegreen
+}
+rectangle "Twilio emulator" {
+  component Nginx
+  component "Twilio Mock" as TwilioMock
+}
+
+Application - TwilioClient : use
+TwilioClient -(0- Nginx : https
+Nginx -(0- TwilioMock : http
+
+@enduml
