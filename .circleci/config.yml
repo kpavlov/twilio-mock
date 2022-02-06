@@ -48,13 +48,14 @@ jobs:
           name: Start Server
           command: |
             nohup yarn start:prod &
+            sleep 5
       # - run:
       #     name: Run Tests
       #     command: yarn tests
       - run:
           name: Stop
           command: |
-            killall node
+            # killall node
             # docker rm --force twilio-proxy
 
 # Invoke jobs via workflows
