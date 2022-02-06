@@ -8,13 +8,15 @@ jobs:
   test:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/node:17.4.0
+    # docker:
+      # - image: cimg/node:17.4.0
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    machine: true
     steps:
-#       - setup_remote_docker:
-#         version: 20.10.11
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
       - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
