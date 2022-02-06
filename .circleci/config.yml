@@ -31,12 +31,12 @@ jobs:
           install-yarn: true 
           node-version: 17.4.0
       - setup_remote_docker
-      - run:
-          name: Start Proxy
-          command: |
-            docker-compose up -d
-            # docker build nginx -t twilio-proxy:latest
-            # docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
+      # - run:
+      #     name: Start Proxy
+      #     command: |
+      #       docker-compose up -d
+      #       # docker build nginx -t twilio-proxy:latest
+      #       # docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
       - run:
           name: Start Proxy
           command: yarn proxy
