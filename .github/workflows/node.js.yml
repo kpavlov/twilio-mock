@@ -29,6 +29,11 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: yarn lint
+    - run: yarn start
+    - name: Add hosts to /etc/hosts
+      run: |
+        sudo echo "127.0.0.1 api.local.twilio.com" | sudo tee -a /etc/hosts
+        sudo echo "127.0.0.1 conversations.local.twilio.com" | sudo tee -a /etc/hosts
     - name: Start containers
       run: docker-compose -f "docker-compose.yml" up -d --build
     - run: yarn test
