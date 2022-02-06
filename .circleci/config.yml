@@ -29,11 +29,11 @@ jobs:
       - docker/install-docker-tools
       - setup_remote_docker
       - node/install:
-          install-yarn: true 
+          install-yarn: true
           node-version: 17.4.0
       - node/install-packages:
-          pkg-manager: yarn 
-          check-cache: detect 
+          pkg-manager: yarn
+          check-cache: detect
 
       # - run:
       #     name: Start Proxy
@@ -42,8 +42,8 @@ jobs:
       #       # docker build nginx -t twilio-proxy:latest
       #       # docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
       - run:
-          name: Start Proxy
-          command: yarn proxy
+          name: Build
+          command: yarn build
       - run:
           name: Start Server
           command: yarn start:prod
