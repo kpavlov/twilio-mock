@@ -44,7 +44,7 @@ jobs:
 
       - run:
           name: Run Tests
-          command: yarn tests
+          command: yarn test
           environment:
             NODE_TLS_REJECT_UNAUTHORIZED: 0
             PORT: 443
