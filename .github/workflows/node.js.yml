@@ -28,16 +28,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - name: Start containers
-    - run: yarn
       run: yarn proxy
+    - run: yarn
     - run: yarn build
-    - run: |
-        "nohup yarn start:prod &"
     - name: Add hosts to /etc/hosts
       run: |
         sudo echo "127.0.0.1 api.local.twilio.com" | sudo tee -a /etc/hosts
         sudo echo "127.0.0.1 conversations.local.twilio.com" | sudo tee -a /etc/hosts
-    - run: yarn test
+    - run: |
+        yarn start:prod &
+        yarn test
     - name: Stop containers
       if: always()
       run: docker-compose -f "docker-compose.yml" down
