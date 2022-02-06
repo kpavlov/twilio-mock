@@ -30,11 +30,11 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          name: Build
+          name: Start Proxy
           command: |
-            # docker-compose up -d
-            docker build nginx -t twilio-proxy:latest
-            docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
+            docker-compose up -d
+            # docker build nginx -t twilio-proxy:latest
+            # docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
       - run:
           name: Start Proxy
           command: yarn proxy
