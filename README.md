@@ -1,5 +1,7 @@
 # Twilio Mock API Server
 
+[![CircleCI](https://circleci.com/gh/kpavlov/twilio-mock/tree/master.svg?style=svg)](https://circleci.com/gh/kpavlov/twilio-mock/tree/master)
+
 Twilio API Simulator
 
 [![](http://www.plantuml.com/plantuml/svg/NP2n2i8m48RtUugZBYu5PwUAiqw-G8X73LulHt95GNnt6wBGE7x_dtpvoP3D9Pid1aZapSd8X4uLNu3euwHHI0mFgXoyin2boI-Fm24UEHJ0ZJgcCH49l5Uwhfv2ccPs5bFt9p-FGPvDyhjnYlxUeSjOkU1YXjKQxDiDUvmpGHFrsrrVtrZQcvbcg5IAbVdR0Wmar_8Z7m00)](docs/diagram.puml)
