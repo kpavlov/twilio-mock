@@ -41,18 +41,26 @@ jobs:
       #       docker-compose up -d
       #       # docker build nginx -t twilio-proxy:latest
       #       # docker run -p 127.0.0.1:443:443 -d --rm --name twilio-proxy twilio-proxy:latest
+
+      - run:
+          name: Run Tests
+          command: yarn tests
+          environment:
+            NODE_TLS_REJECT_UNAUTHORIZED: 0
+            PORT: 443
+            TLS_ENABLED: true
+
       - run:
           name: Build
           command: yarn build
+
       - run:
           name: Start Server
           command: |
             nohup yarn start:prod &
             sleep 5
             cat nohup.out
-      # - run:
-      #     name: Run Tests
-      #     command: yarn tests
+
       - run:
           name: Stop
           command: |
