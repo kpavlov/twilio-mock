@@ -5,7 +5,7 @@ const authToken = 'xxxxxx';   // Your Auth Token from www.twilio.com/console
 
 const client = new Twilio(accountSid, authToken, {
     region: 'local',
-    logLevel: 'info'
+    logLevel: 'debug'
 });
 const conversationsClient = client.conversations;
 

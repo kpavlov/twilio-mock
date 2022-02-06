@@ -24,7 +24,7 @@ NODE_TLS_REJECT_UNAUTHORIZED=0 # Allow self-signed certificates
 Running server:
 
 ```shell
-yarn && yarn start
+yarn && yarn proxy && yarn start
 ```
 
 Calling API:
@@ -38,15 +38,12 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 // Twilio Credentials
-const accountSid = process.env.ACCOUNT_SID
-const authToken = process.env.AUTH_TOKEN
-
-const accountSid = 'AC00000000000000000000000000000000'; // Your Account SID from www.twilio.com/console
-const authToken = 'xxxxxx';   // Your Auth Token from www.twilio.com/console
+const accountSid = process.env.ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+const authToken = process.env.AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
 
 const client = new Twilio(accountSid, authToken, {
-    region: 'local', // will connect to '*.local.twilio.com' === 127.0.0.1
-    logLevel: 'info' // or 'debug' 
+  region: 'local', // will connect to '*.local.twilio.com' === 127.0.0.1
+  logLevel: 'info' // or 'debug'
 })
 const conversationsClient = client.conversations;
 

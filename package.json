@@ -7,7 +7,9 @@
   "scripts": {
     "start": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --trace-tls --loader ts-node/esm' src/index.ts",
     "lint": "eslint src/",
-    "test": "jest --coverage --detectOpenHandles --forceExit"
+    "test": "jest --coverage --detectOpenHandles ",
+    "proxy": "docker compose up --detach",
+    "proxy:stop": "docker compose down --remove-orphans"
   },
   "repository": {
     "type": "git",
