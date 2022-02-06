@@ -18,7 +18,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - node/install-yarn
+      # - node/install-yarn
       - node/install-packages:
           pkg-manager: yarn
           include-branch-in-cache-key: false
