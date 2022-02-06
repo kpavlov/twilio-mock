@@ -32,6 +32,19 @@ jobs:
       - run:
           name: Build
           command: yarn build
+      - run:
+          name: Start Proxy
+          command: yarn proxy
+      - run:
+          name: Start Server
+          command: yarn start:prod
+      - run:
+          name: Run Tests
+          command: yarn tests
+      - run:
+          name: Stop Proxy
+          command: yarn proxy:stop
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
