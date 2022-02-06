@@ -26,9 +26,9 @@ jobs:
             - .yarn/cache
             - .yarn/unplugged
       - docker/install-docker-compose
-      - docker/install-docker
+#       - docker/install-docker
       - setup_remote_docker:
-          version: 19.03.13
+          version: 20.10.11
       - run:
           name: Start Proxy
           command: |
