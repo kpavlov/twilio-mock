@@ -44,11 +44,11 @@ jobs:
 
       - run:
           name: Run Tests
-          command: yarn test
-          environment:
-            NODE_TLS_REJECT_UNAUTHORIZED: 0
-            PORT: 443
-            TLS_ENABLED: true
+          command: |
+            echo 'TLS_ENABLED=true' | tee -a .env
+            echo 'PORT=443' | tee -a .env
+            echo 'NODE_TLS_REJECT_UNAUTHORIZED=0' | tee -a .env
+            yarn test
 
       - run:
           name: Build
