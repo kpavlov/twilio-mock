@@ -32,6 +32,14 @@ Calling API:
 ```typescript
 // sample.ts
 import {Twilio} from "twilio";
+import dotenv from 'dotenv'
+
+// Load environment variables
+dotenv.config()
+
+// Twilio Credentials
+const accountSid = process.env.ACCOUNT_SID
+const authToken = process.env.AUTH_TOKEN
 
 const accountSid = 'AC00000000000000000000000000000000'; // Your Account SID from www.twilio.com/console
 const authToken = 'xxxxxx';   // Your Auth Token from www.twilio.com/console
