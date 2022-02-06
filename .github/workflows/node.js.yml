@@ -36,7 +36,7 @@ jobs:
         sudo echo "127.0.0.1 api.local.twilio.com" | sudo tee -a /etc/hosts
         sudo echo "127.0.0.1 conversations.local.twilio.com" | sudo tee -a /etc/hosts
     - run: |
-        yarn start:prod &
+        nohup yarn start:prod &
         yarn test
     - name: Stop containers
       if: always()

@@ -9,7 +9,7 @@
     "build": "rm -rf dist && yarn lint && tsc",
     "start:prod": "node --experimental-specifier-resolution=node --loader ts-node/esm dist/src/index.js",
     "lint": "eslint src/",
-    "test": "jest --coverage --detectOpenHandles ",
+    "test": "jest --coverage",
     "proxy": "docker compose up --detach",
     "proxy:stop": "docker compose down --remove-orphans"
   },
